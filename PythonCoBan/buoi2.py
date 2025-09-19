@@ -148,14 +148,124 @@ kem
 ### Bài tập: Kiểm tra số nhập vào là Số hoàn hảo, số có tổng các ước thực sự bằng chính nó (ước thực sự là ước, trừ chính nó)
 import math
 
-n = int(input("Nhập n: "))
-S = 0
-for i in range(1, int(n/2 + 1)):
-    if n % i == 0:
-        S += i
+# n = int(input("Nhập n: "))
+# S = 0
+# for i in range(1, int(n/2 + 1)):
+#     if n % i == 0:
+#         print(f"i: {i}")
+#         S += i
+#
+# if S == n:
+#     print(f"Số {n} là số hoàn hảo, S: {S}")
+# else:
+#     print(f"Số {n} không phải là số hoàn hảo, S: {S}")
 
-if S == n:
-    print(f"Số {n} là số hoàn hảo")
-else:
-    print(f"Số {n} không phải là số hoàn hảo")
+### Nâng cao, in ra các số hoàn hảo từ 1 -> n
 
+# n = int(input("Nhập n: "))
+# print("Cac so hoan hao tu 1 den", n, ": ", end=" ")
+# for i in range(2, n+1):
+#     S = 0
+#     sqrt = int(math.sqrt(i))
+#     for j in range(1, sqrt + 1):
+#     # for j in range(1, int(i/2 + 1)):
+#         if i % j == 0:
+#             S += j
+#             if i // j != j and j != 1:
+#                 S += (i // j)
+#     if S == i:
+#         print(i)
+
+# Nếu 8589869056 thì mất: 307 ngày liên tục => Sử dụng công thức.Euclid–Euler
+
+
+#
+# def is_prime(n):
+#     if n < 2:
+#         return False
+#     if n % 2 == 0:
+#         return n == 2
+#     for i in range(3, int(math.sqrt(n) + 1), 2):
+#         if n % i == 0:
+#             return False
+#     return True
+#
+# # Test
+# def is_mersenne_prime(p):
+#     """Lucas-Lehmer test cho M_p = 2^p - 1. Yêu cầu: p >= 2 và p là số nguyên tố."""
+#     if p == 2:
+#         return True
+#     Mp = (1 << p) - 1
+#     s = 4
+#     for _ in range(p - 2):
+#         s = (s * s - 2) % Mp
+#     return s == 0
+#
+# def is_perfect(n):
+#     # Tim max cua p
+#     max_p = int((math.log(n, 2) + 1 ))
+#
+#     # Duyet p, tim so nguyen to, neu la nguyen to -> kiem tra co phai nguyen to mersenne
+#     for p in range(2, max_p + 1):
+#         if is_prime(p):
+#             # mersenne = 2^p -1
+#             mersenne = (1 << p) -1
+#             if is_mersenne_prime(p):
+#                 # Chac chan la so hoan hao
+#                 perfect = (1 << (p -1)) * mersenne
+#                 if perfect == n:
+#                     return True
+#     return False
+#
+# # Test
+# for i in range(2, 200000000000000):
+#     if is_perfect(i):
+#         print(i, end=" ")
+
+
+
+
+
+
+
+# Thử tạo thay vì kiểm tra
+
+def is_prime(n):
+    if n < 2:
+        return False
+    if n % 2 == 0:
+        return n == 2
+    for i in range(3, int(math.sqrt(n) + 1), 2):
+        if n % i == 0:
+            return False
+    return True
+
+# # Test
+def is_mersenne_prime(p):
+    """Lucas-Lehmer test cho M_p = 2^p - 1. Yêu cầu: p >= 2 và p là số nguyên tố."""
+    if p == 2:
+        return True
+    Mp = (1 << p) - 1
+    s = 4
+    for _ in range(p - 2):
+        s = (s * s - 2) % Mp
+    return s == 0
+
+def generate_perfects(n):
+    # Tim max cua p
+    max_p = int((math.log(n, 2) + 1 ))
+
+    for p in range(2, max_p + 1):
+        if is_prime(p):
+            # mersenne = 2^p -1
+            mersenne = (1 << p) -1
+            if is_mersenne_prime(p):    # nhanh hơn nhiều lần
+            # if is_prime(mersenne):    # còn quá chậm khi đến số to
+                # Chac chan la so hoan hao
+                perfect = (1 << (p -1)) * mersenne
+                if perfect > n:
+                    break
+                print(perfect)
+
+# Test
+generate_perfects (10**40)
