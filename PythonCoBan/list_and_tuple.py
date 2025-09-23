@@ -162,3 +162,6 @@ Ghi chú: Điểm khác nhau giữa Tuple và List
 # print(tuple(str1))
 
 
+str2 = "Hoang"
+str2[0] = 'u'
+print(str2)
