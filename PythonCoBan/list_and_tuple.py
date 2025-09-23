@@ -99,22 +99,66 @@ furniture = ['table', 'chair', 'tivi', 'bed', 'led']
 # phones.insert(1, 'googlePixel')
 # print(phones)
 
-### 11. Removing Values
 '''
+11. Removing Values
 + del(): xóa phần tử theo index
 + remove(): xóa phần tử theo giá trị. Chỉ xóa phần tử khớp đầu tiên.
 + pop(): mặc định - xóa phần tử cuối và trả về nó. Có thể dùng index để chỉ định.
 '''
-phones = ['apple', 'samsung', 'oppo', 'xiaomi']
+# phones = ['apple', 'samsung', 'oppo', 'xiaomi']
+#
+#
+# del(phones[2])  #tương tự: del phones[2]
+# print(phones)
+#
+# phones = ['apple', 'samsung', 'oppo', 'xiaomi']
+# phones.remove("oppo")
+# print(phones)
+#
+# phones = ['apple', 'samsung', 'oppo', 'xiaomi']
+# phones.remove("oppo")
+# print(phones)
+
+"""
+12. Sorting value with sort()
+"""
+
+# students = ['Anh', 'Hoang', 'hoang', 'Tuan', 'Chuong', 'Bao', 'Yen']
+# # students.sort()
+# # students.sort(reverse=True)     # Sap xep nguoc lai
+# print(students)
+#
+# sortedStudents = sorted(students)
+# print("After sorting:",sortedStudents)
+
+'''
+Chuyển các phần tử ve chu thuong va so sanh. Ket qua van hien thi chu ban dau. key=str.lower
+'''
+# letters = ['a', 'z', 'A', 'Z']
+# letters.sort(key=str.lower)
+# print(letters)
 
 
-del(phones[2])  #tương tự: del phones[2]
-print(phones)
+'''
+    The Tuple data type
+    
+Ghi chú: Điểm khác nhau giữa Tuple và List
+    + Tuple bat bien immutable (giong nhu string)
+    + List co the thay doi mutable
+'''
 
-phones = ['apple', 'samsung', 'oppo', 'xiaomi']
-phones.remove("oppo")
-print(phones)
+'''
+    Converting between list() and tuple()
+'''
+# list1 = ['name', 'age', 123]
+# list1[0] = 'haha'
+# print(list1)
+#
+# tuple_list1 = tuple(list1)
+# print(tuple_list1)
 
-phones = ['apple', 'samsung', 'oppo', 'xiaomi']
-phones.remove("oppo")
-print(phones)
+# str1 = "Toilaai"
+# print(list(str1))
+# print(tuple(str1))
+
+
