@@ -1,13 +1,9 @@
+import utils
 # Tinh tích 2 ma trận a, b
 
 """
     a[i][j] (tính theo hàng) j chạy * b[i][j] (tính theo cột) i chạy
 """
-def in_ma_tran(matrix):
-    for row in matrix:
-        for col in row:
-            print(f"{col:<7}", end="")
-        print()
 
 # Nhap hang, cot
 hang_a = int(input("Nhap so hang ma tran A"))
@@ -34,8 +30,8 @@ for i in range(hang_b):
         row.append(int(input(f"b[{i}][{j}] = ")))
     b.append(row)
 
-in_ma_tran(a)
-in_ma_tran(b)
+utils.in_ma_tran(a)
+utils.in_ma_tran(b)
 
 # Tinh tich 2 ma tran: (hang_a, cot_b)
 c = [[0 for _ in range(cot_b)] for _ in range(hang_a)]
@@ -47,5 +43,5 @@ for i in range(hang_a):
             c[i][j] += a[i][k]*b[k][j]
 
 print("Ma tran tich c:")
-in_ma_tran(c)
+utils.in_ma_tran(c)
 
