@@ -1,0 +1,1 @@
+5 random strings contain three numbers: 32, 3.14, 24, 32.15
