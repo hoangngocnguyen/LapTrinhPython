@@ -1,0 +1,12 @@
+import sys
+import os
+
+# Kiểm tra xem có file input.txt ở cùng thư mục không
+# Nếu chạy trên máy local thì đọc file, nếu nộp lên Judge thì đọc bàn phím
+if os.path.exists('input.txt'):
+    sys.stdin = open('input.txt', 'r')
+    # sys.stdout = open('output.txt', 'w') # Mở dòng này nếu muốn xuất ra file luôn
+
+# --- CODE GIẢI BÀI ICPC Ở DƯỚI ĐÂY ---
+data = list(map(int, input().split()))
+print(sum(data))
