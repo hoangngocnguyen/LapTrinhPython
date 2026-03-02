@@ -1,0 +1,4 @@
+# Chặn file cấu hình thư mục của Windows
+desktop.ini
+[Dd]esktop.ini
+Thumbs.db
